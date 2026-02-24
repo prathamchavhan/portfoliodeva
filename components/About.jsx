@@ -117,7 +117,9 @@ export default function About() {
             <div className="absolute top-12 left-6 md:left-12 lg:left-32 z-30">
                 <div className="flex items-center gap-4">
                     <div className="h-[2px] w-12 bg-zinc-400/50"></div>
-                    <h1 className="text-lg font-black tracking-[0.3em] uppercase text-zinc-500 dark:text-zinc-500">About Me</h1>
+                    <h3 className="text-3xl md:text-66xl font-black uppercase tracking-tighter text-[#106c57] dark:text-emerald-400">
+                        About Me
+                    </h3>
                 </div>
             </div>
 
