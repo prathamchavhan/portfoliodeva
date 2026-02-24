@@ -68,8 +68,9 @@ export default function Hero() {
                     Hi There, I'm Devashish Dhumal
                 </h2>
                 <div className="text-xs uppercase font-semibold flex flex-col gap-1 items-end tracking-widest text-[#111] dark:text-white">
-                    <a href="#" className="hover:underline">Twitter</a>
+                    <a href="#" className="hover:underline">Github</a>
                     <a href="#" className="hover:underline">LinkedIn</a>
+                    <a href="#" className="hover:underline">Instagram</a>
                 </div>
             </motion.div>
 
@@ -127,17 +128,11 @@ export default function Hero() {
                 className="absolute right-8 md:right-16 top-1/2 -translate-y-1/2 max-w-[150px] z-20"
             >
                 <p className="text-xs uppercase tracking-widest text-right font-mono text-[#333] dark:text-gray-300 leading-relaxed">
-                    I am a full-stack and mobile app developer who transforms ideas into powerful digital solutions by combining intuitive frontend design, robust backend systems, and seamless mobile experiences.
+                    I am Devashish Dhumal a full-stack and mobile app developer who transforms ideas into powerful digital solutions by combining intuitive frontend design, robust backend systems, and seamless mobile experiences.
                 </p>
             </motion.div>
 
-            {/* Background Waves (SVG) */}
-            <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden opacity-30">
-                <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="w-full h-full absolute top-0 left-0">
-                    <path d="M0,50 Q25,30 50,50 T100,50 L100,100 L0,100 Z" fill="none" stroke="white" strokeWidth="0.2" className="animate-pulse" />
-                    <path d="M0,70 Q25,50 50,70 T100,70 L100,100 L0,100 Z" fill="none" stroke="white" strokeWidth="0.1" />
-                </svg>
-            </div>
+
         </section>
     );
 }

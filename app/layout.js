@@ -19,6 +19,9 @@ export const metadata = {
 import SmoothScroll from "@/components/SmoothScroll";
 import StoreProvider from "@/components/StoreProvider";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import FloatingNav from "@/components/FloatingNav";
+import AudioPlayer from "@/components/AudioPlayer";
+import { Toaster } from "@/components/ui/sonner";
 
 export default function RootLayout({ children }) {
   return (
@@ -26,9 +29,12 @@ export default function RootLayout({ children }) {
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <StoreProvider>
+            <FloatingNav />
+            <AudioPlayer />
             <SmoothScroll>
               {children}
             </SmoothScroll>
+            <Toaster position="bottom-right" theme="system" />
           </StoreProvider>
         </ThemeProvider>
       </body>

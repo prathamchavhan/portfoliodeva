@@ -3,8 +3,9 @@ import Link from 'next/link';
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ArrowUpRight, Activity, Code2, ScanLine } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { PhoneMockup, MacbookMockup } from './ProjectMockups';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -16,7 +17,8 @@ const projects = [
         link: "https://play.google.com/store/apps/details?id=com.hyreso.app&hl=en_IN",
         type: "Play Store",
         color: "bg-gradient-to-br from-teal-400 to-emerald-600",
-        image: "./hyreso.png"
+        image: "./hyreso.png",
+        downloadLink: "/resume.pdf"
     },
     {
         title: "Crop Bazar",
@@ -25,7 +27,7 @@ const projects = [
         link: "https://play.google.com/store/apps/details?id=com.thecropbazar.market&hl=en_IN",
         type: "Play Store",
         color: "bg-gradient-to-br from-green-400 to-green-700",
-        image: "/cropbazaar.png"
+        customUI: true
     },
     {
         title: "AI Sign Language System",
@@ -45,13 +47,16 @@ export default function Projects() {
     const laptopRef = useRef(null);
     const screensRef = useRef([]);
     const codeScrollRef = useRef(null);
+    const cropScrollRef = useRef(null);
     const isHoveringCode = useRef(false);
+    const isHoveringCrop = useRef(false);
 
     useEffect(() => {
         let animationId;
         let currentScroll = 0;
 
         const autoScroll = () => {
+            // Auto-scroll MacBook Code
             if (codeScrollRef.current && !isHoveringCode.current) {
                 currentScroll += 0.3; // Very slow auto-scrolling
                 codeScrollRef.current.scrollTop = currentScroll;
@@ -64,6 +69,7 @@ export default function Projects() {
                 // Sync currentScroll if the user manually scrolled
                 currentScroll = codeScrollRef.current.scrollTop;
             }
+
             animationId = requestAnimationFrame(autoScroll);
         };
 
@@ -190,138 +196,16 @@ export default function Projects() {
                 <div ref={rightColumnRef} className="hidden md:flex w-[55%] lg:w-1/2 h-screen sticky top-0 items-center justify-end lg:justify-center pl-16 lg:pl-24 relative">
 
                     {/* --- IPHONE MOCKUP --- */}
-                    <div ref={phoneRef} className="absolute inset-0 flex items-center justify-end lg:justify-center">
-                        <div className="relative w-[320px] h-[650px] flex-shrink-0">
-
-                            {/* Hardware Buttons */}
-                            <div className="absolute top-[180px] -right-[4px] w-[5px] h-[60px] bg-[#222] dark:bg-[#555] rounded-r-md shadow-md z-0"></div>
-                            <div className="absolute top-[140px] -left-[4px] w-[5px] h-[25px] bg-[#222] dark:bg-[#555] rounded-l-md shadow-md z-0"></div>
-                            <div className="absolute top-[190px] -left-[4px] w-[5px] h-[55px] bg-[#222] dark:bg-[#555] rounded-l-md shadow-md z-0"></div>
-                            <div className="absolute top-[260px] -left-[4px] w-[5px] h-[55px] bg-[#222] dark:bg-[#555] rounded-l-md shadow-md z-0"></div>
-
-                            {/* Phone Frame */}
-                            <div className="relative w-full h-full rounded-[3.5rem] border-[14px] border-[#111] dark:border-[#222] bg-black shadow-2xl z-10 overflow-hidden ring-4 ring-black/10 dark:ring-white/5">
-
-                                {/* iPhone 13 Notch */}
-                                <div className="absolute top-0 inset-x-0 flex justify-center z-50 pointer-events-none">
-                                    <div className="w-[140px] h-[30px] bg-black rounded-b-3xl flex items-center justify-center gap-4 px-4 relative">
-                                        <div className="w-12 h-1.5 bg-[#222] dark:bg-[#111] rounded-full"></div>
-                                        <div className="w-3 h-3 rounded-full bg-[#111] shadow-[inset_0_0_2px_rgba(255,255,255,0.2)]"></div>
-                                    </div>
-                                </div>
-
-                                {/* Dynamic Screens */}
-                                <div className="relative w-full h-full bg-black rounded-[2.5rem] overflow-hidden">
-                                    {projects.slice(0, 2).map((project, i) => (
-                                        <div
-                                            key={i}
-                                            ref={el => screensRef.current[i] = el}
-                                            className="absolute inset-0 w-full h-full opacity-0"
-                                            style={{ opacity: i === 0 ? 1 : 0 }}
-                                        >
-                                            {project.image ? (
-                                                <img
-                                                    src={project.image}
-                                                    alt={project.title}
-                                                    className="w-full h-full object-cover object-top"
-                                                />
-                                            ) : (
-                                                <div className={`w-full h-full ${project.color} flex flex-col items-center justify-center p-8 text-center text-white`}>
-                                                    <h4 className="text-3xl font-black tracking-tighter leading-tight drop-shadow-md">
-                                                        {project.title}
-                                                    </h4>
-                                                </div>
-                                            )}
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <PhoneMockup
+                        ref={phoneRef}
+                        projects={projects}
+                        screensRef={screensRef}
+                        cropScrollRef={cropScrollRef}
+                        isHoveringCrop={isHoveringCrop}
+                    />
 
                     {/* --- MACBOOK M4 MOCKUP (Project 3) --- */}
-                    <div ref={laptopRef} className="absolute inset-0 flex items-center justify-end lg:justify-center opacity-0 scale-90 md:scale-75 lg:scale-95 ml-[-6rem] md:ml-[-4rem] lg:ml-0 translate-x-12 lg:translate-x-0">
-                        <div className="relative flex flex-col items-center">
-
-                            {/* MacBook Screen Frame */}
-                            <div className="relative w-[450px] lg:w-[540px] aspect-[16/10.5] bg-black rounded-t-2xl border-[6px] border-[#1a1a1a] dark:border-[#2a2a2a] shadow-2xl overflow-hidden ring-1 ring-white/10">
-
-                                {/* MacBook M4 Notch */}
-                                <div className="absolute top-0 inset-x-0 flex justify-center z-50">
-                                    <div className="w-[100px] h-[22px] bg-[#1a1a1a] dark:bg-[#2a2a2a] rounded-b-[14px] flex items-center justify-center relative">
-                                        <div className="w-2 h-2 rounded-full bg-[#050505] flex items-center justify-center shadow-[inset_0_0_2px_rgba(255,255,255,0.1)]">
-                                            <div className="w-0.5 h-0.5 rounded-full bg-blue-500/50"></div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                {/* MacBook Screen Content - Realistic Code Editor */}
-                                <div className="w-full h-full bg-[#1e1e1e] text-[#d4d4d4] font-mono text-[10px] sm:text-xs pt-8 p-4 flex flex-col relative overflow-hidden">
-
-                                    {/* Editor Tabs */}
-                                    <div className="absolute top-0 left-0 w-full h-8 bg-[#2d2d2d] flex items-end px-2 gap-1 z-40">
-                                        <div className="bg-[#1e1e1e] px-4 py-1.5 rounded-t font-sans text-[10px] text-white/80 border-t border-blue-500/50 flex items-center gap-2">
-                                            <span className="text-yellow-400">app.py</span>
-                                            <span className="text-white/40 hover:text-white/80 cursor-pointer">×</span>
-                                        </div>
-                                        <div className="px-4 py-1.5 rounded-t font-sans text-[10px] text-white/40 flex items-center gap-2">
-                                            <span>model.py</span>
-                                        </div>
-                                    </div>
-
-                                    {/* Code Content */}
-                                    <div className="flex-1 overflow-hidden relative mt-2 flex">
-
-                                        {/* Line Numbers */}
-                                        <div className="w-8 flex-shrink-0 text-[#858585] text-right pr-3 select-none flex flex-col pt-2 opacity-50">
-                                            {[...Array(20)].map((_, i) => <div key={i}>{i + 1}</div>)}
-                                        </div>
-
-                                        {/* Scrolling Code */}
-                                        <div
-                                            ref={codeScrollRef}
-                                            data-lenis-prevent="true"
-                                            onMouseEnter={() => isHoveringCode.current = true}
-                                            onMouseLeave={() => isHoveringCode.current = false}
-                                            onTouchStart={() => isHoveringCode.current = true}
-                                            onTouchEnd={() => isHoveringCode.current = false}
-                                            className="flex-1 relative overflow-y-auto overflow-x-hidden [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:bg-white/10 [&::-webkit-scrollbar-thumb]:rounded-full hover:[&::-webkit-scrollbar-thumb]:bg-white/20 pr-2 overscroll-contain"
-                                        >
-                                            <div className="pt-2 pb-12 flex flex-col leading-relaxed">
-                                                <p><span className="text-[#c586c0]">import</span> <span className="text-[#4ec9b0]">torch</span></p>
-                                                <p><span className="text-[#c586c0]">import</span> <span className="text-[#4ec9b0]">cv2</span></p>
-                                                <p><span className="text-[#c586c0]">import</span> <span className="text-[#4ec9b0]">numpy</span> <span className="text-[#c586c0]">as</span> <span className="text-[#4ec9b0]">np</span></p>
-                                                <p><span className="text-[#c586c0]">import</span> <span className="text-[#4ec9b0]">mediapipe</span> <span className="text-[#c586c0]">as</span> <span className="text-[#4ec9b0]">mp</span></p>
-                                                <p className="mt-4"><span className="text-[#569cd6]">def</span> <span className="text-[#dcdcaa]">extract_keypoints</span>(results):</p>
-                                                <p className="pl-4">pose = np.array([[res.x, res.y, res.z, res.visibility] <span className="text-[#c586c0]">for</span> res <span className="text-[#c586c0]">in</span> results.pose_landmarks.landmark]).flatten() <span className="text-[#c586c0]">if</span> results.pose_landmarks <span className="text-[#c586c0]">else</span> np.zeros(<span className="text-[#b5cea8]">33</span>*<span className="text-[#b5cea8]">4</span>)</p>
-                                                <p className="pl-4">face = np.array([[res.x, res.y, res.z] <span className="text-[#c586c0]">for</span> res <span className="text-[#c586c0]">in</span> results.face_landmarks.landmark]).flatten() <span className="text-[#c586c0]">if</span> results.face_landmarks <span className="text-[#c586c0]">else</span> np.zeros(<span className="text-[#b5cea8]">468</span>*<span className="text-[#b5cea8]">3</span>)</p>
-                                                <p className="pl-4"><span className="text-[#c586c0]">return</span> np.concatenate([pose, face])</p>
-                                                <p className="mt-4"><span className="text-[#6a9955]"># Load the trained model</span></p>
-                                                <p>model = torch.load(<span className="text-[#ce9178]">'gloss_to_pose.pth'</span>)</p>
-                                                <p>model.eval()</p>
-                                                <p className="mt-4"><span className="text-[#c586c0]">while</span> <span className="text-[#569cd6]">True</span>:</p>
-                                                <p className="pl-4">ret, frame = cap.read()</p>
-                                                <p className="pl-4"><span className="text-[#6a9955]"># Processing frame through MediaPipe</span></p>
-                                                <p className="pl-4">predictions = model(features)</p>
-                                                <p className="pl-4">cv2.imshow(<span className="text-[#ce9178]">'AI Sign Language'</span>, frame)</p>
-                                                <p className="mt-4"><span className="text-[#6a9955]"># Wait for exit</span></p>
-                                                <p className="pl-4"><span className="text-[#c586c0]">if</span> cv2.waitKey(<span className="text-[#b5cea8]">1</span>) & <span className="text-[#b5cea8]">0xFF</span> == <span className="text-[#569cd6]">ord</span>(<span className="text-[#ce9178]">'q'</span>):</p>
-                                                <p className="pl-8"><span className="text-[#c586c0]">break</span></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* MacBook Base (Keyboard/Trackpad Deck) */}
-                            <div className="relative w-[520px] lg:w-[620px] h-[16px] bg-[#d1d5db] dark:bg-[#374151] rounded-b-[16px] shadow-2xl flex justify-center border-t border-white/20">
-                                {/* Trackpad Indent */}
-                                <div className="w-[100px] h-[4px] bg-[#9ca3af] dark:bg-[#1f2937] rounded-b-md"></div>
-                                {/* Bottom Lip Glow */}
-                                <div className="absolute bottom-0 w-full h-[2px] bg-white/10 rounded-b-full"></div>
-                            </div>
-                        </div>
-                    </div>
+                    <MacbookMockup ref={laptopRef} codeScrollRef={codeScrollRef} isHoveringCode={isHoveringCode} />
                 </div>
 
             </div>
