@@ -45,7 +45,9 @@ export default function ResumeContent() {
                     viewport={{ once: true }}
                     className="border-b border-black/10 dark:border-white/10 pb-4"
                 >
-                    <h3 className="text-lg font-bold tracking-[0.2em] uppercase text-zinc-900 dark:text-zinc-100">Experience</h3>
+                    <h3 className="text-3xl md:text-66xl font-black uppercase tracking-tighter text-[#106c57] dark:text-emerald-400">
+                        Experience
+                    </h3>
                 </motion.div>
 
                 <div className="flex flex-col gap-10">
@@ -77,7 +79,9 @@ export default function ResumeContent() {
                     viewport={{ once: true }}
                     className="border-b border-black/10 dark:border-white/10 pb-4"
                 >
-                    <h3 className="text-lg font-bold tracking-[0.2em] uppercase text-zinc-900 dark:text-zinc-100">Technical Skills</h3>
+                    <h3 className="text-3xl md:text-66xl font-black uppercase tracking-tighter text-[#106c57] dark:text-emerald-400">
+                        Technical Skills
+                    </h3>
                 </motion.div>
 
                 <div className="flex flex-col gap-8">
@@ -114,7 +118,9 @@ export default function ResumeContent() {
                     viewport={{ once: true }}
                     className="border-b border-black/10 dark:border-white/10 pb-4"
                 >
-                    <h3 className="text-lg font-bold tracking-[0.2em] uppercase text-zinc-900 dark:text-zinc-100">Achievements</h3>
+                    <h3 className="text-3xl md:text-66xl font-black uppercase tracking-tighter text-[#106c57] dark:text-emerald-400">
+                        Achievements
+                    </h3>
                 </motion.div>
 
                 <div className="flex flex-col gap-4">
