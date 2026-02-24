@@ -68,8 +68,8 @@ export default function Hero() {
                     Hi There, I'm Devashish Dhumal
                 </h2>
                 <div className="text-xs uppercase font-semibold flex flex-col gap-1 items-end tracking-widest text-[#111] dark:text-white">
-                    <a href="#" className="hover:underline">Github</a>
-                    <a href="#" className="hover:underline">LinkedIn</a>
+                    <a href="https://github.com/deva41103" className="hover:underline">Github</a>
+                    <a href="https://www.linkedin.com/in/devashish-dhumal-b675a7257/" className="hover:underline">LinkedIn</a>
                     <a href="#" className="hover:underline">Instagram</a>
                 </div>
             </motion.div>

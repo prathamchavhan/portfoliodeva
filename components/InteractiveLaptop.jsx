@@ -15,7 +15,7 @@ import { ReactLenis } from 'lenis/react';
 export default function InteractiveLaptop() {
     const [windowState, setWindowState] = useState('open'); // 'open', 'minimized', 'closed'
     const [isFullscreen, setIsFullscreen] = useState(false);
-    const [activeTab, setActiveTab] = useState('dashboard'); // 'dashboard', 'resume'
+    const [activeTab, setActiveTab] = useState('resume'); // 'dashboard', 'resume'
 
     return (
         <div className="w-full lg:w-1/2 lg:sticky lg:top-24 h-[calc(100vh-12rem)] min-h-[500px] flex flex-col justify-center gap-8 shrink-0">
@@ -36,7 +36,7 @@ export default function InteractiveLaptop() {
                     >
                         <div className="bg-white text-black text-[10px] md:text-xs font-bold px-3 py-1.5 rounded-full shadow-xl flex items-center gap-1.5 whitespace-nowrap border border-black/10">
                             <MousePointerClick className="w-3 h-3 md:w-3.5 md:h-3.5 bg-black text-white p-0.5 rounded-sm" />
-                            Click or Touch!
+                            Scroll it ,Click it ,Touch it ,Feel it!
                         </div>
                         <svg width="40" height="50" viewBox="0 0 100 100" className="mt-1 mr-12 text-black drop-shadow-md overflow-visible" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <motion.path
@@ -69,8 +69,8 @@ export default function InteractiveLaptop() {
 
                     {/* INNER SCREEN (Desktop Background) */}
                     <div className="relative w-full h-full rounded-sm overflow-hidden bg-zinc-900 border flex flex-col border-black"
-                        style={{ backgroundImage: "url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop')", backgroundSize: 'cover', backgroundPosition: 'center' }}>
-
+                        // style={{ backgroundImage: "url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop')", backgroundSize: 'cover', backgroundPosition: 'center' }}>
+                        style={{ backgroundImage: "url('/mm.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }}>
                         {/* macOS Top Menu Bar (Fake) */}
                         <div className="w-full h-5 md:h-6 bg-white/10 backdrop-blur-md flex items-center justify-between px-3 md:px-4 z-40 border-b border-white/10 text-[8px] md:text-[10px] text-white font-medium tracking-wide">
                             <div className="flex items-center gap-3 md:gap-4">
@@ -138,19 +138,20 @@ export default function InteractiveLaptop() {
                                                         <span className="text-[10px] md:text-[11px] font-medium hidden lg:block tracking-wide">Technical Skills</span>
                                                     </div>
                                                     <div
-                                                        onClick={(e) => { e.stopPropagation(); setActiveTab('achievements'); }}
-                                                        className={`flex items-center justify-center lg:justify-start gap-2 p-1.5 lg:px-2 lg:py-1.5 rounded-md cursor-pointer transition-colors ${activeTab === 'achievements' ? 'bg-zinc-800 text-zinc-50' : 'text-zinc-400 hover:bg-zinc-800/50 hover:text-zinc-200'}`}
-                                                    >
-                                                        <Trophy className="w-3 h-3 md:w-4 md:h-4 shrink-0" />
-                                                        <span className="text-[10px] md:text-[11px] font-medium hidden lg:block tracking-wide">Achievements</span>
-                                                    </div>
-                                                    <div
                                                         onClick={(e) => { e.stopPropagation(); setActiveTab('resume'); }}
                                                         className={`flex items-center justify-center lg:justify-start gap-2 p-1.5 lg:px-2 lg:py-1.5 rounded-md cursor-pointer transition-colors ${activeTab === 'resume' ? 'bg-zinc-800 text-zinc-50' : 'text-zinc-400 hover:bg-zinc-800/50 hover:text-zinc-200'}`}
                                                     >
                                                         <FileText className="w-3 h-3 md:w-4 md:h-4 shrink-0" />
                                                         <span className="text-[10px] md:text-[11px] font-medium hidden lg:block tracking-wide">Resume.pdf</span>
                                                     </div>
+                                                    <div
+                                                        onClick={(e) => { e.stopPropagation(); setActiveTab('achievements'); }}
+                                                        className={`flex items-center justify-center lg:justify-start gap-2 p-1.5 lg:px-2 lg:py-1.5 rounded-md cursor-pointer transition-colors ${activeTab === 'achievements' ? 'bg-zinc-800 text-zinc-50' : 'text-zinc-400 hover:bg-zinc-800/50 hover:text-zinc-200'}`}
+                                                    >
+                                                        <Trophy className="w-3 h-3 md:w-4 md:h-4 shrink-0" />
+                                                        <span className="text-[10px] md:text-[11px] font-medium hidden lg:block tracking-wide">Achievements</span>
+                                                    </div>
+
                                                 </div>
                                             </div>
 

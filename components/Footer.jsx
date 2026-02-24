@@ -70,7 +70,7 @@ export default function Footer() {
     };
 
     return (
-        <footer className="w-full px-4 md:px-8 py-12 pb-24 dark:bg-[#0c0c0c] bg-[#f3f2f0]">
+        <footer id="Footer" className="w-full px-4 md:px-8 py-12 pb-24 dark:bg-[#0c0c0c] bg-[#f3f2f0]">
             <div className="max-w-7xl mx-auto w-full relative min-h-[500px] lg:h-[600px] rounded-[2rem] md:rounded-[3rem] overflow-hidden group shadow-2xl flex flex-col lg:flex-row">
 
                 {/* Background Video (Neon Retro City / Synthwave) */}
@@ -110,10 +110,10 @@ export default function Footer() {
                                 <ArrowUp className="w-4 h-4 group-hover/btn:-translate-y-1 transition-transform" />
                                 Back to top
                             </button>
-                            <a href="#" target="_blank" rel="noreferrer" className="text-zinc-400 hover:text-white transition-colors p-2 bg-black/20 rounded-full border border-zinc-800 backdrop-blur-sm" aria-label="LinkedIn">
+                            <a href="https://www.linkedin.com/in/devashish-dhumal-b675a7257/" target="_blank" rel="noreferrer" className="text-zinc-400 hover:text-white transition-colors p-2 bg-black/20 rounded-full border border-zinc-800 backdrop-blur-sm" aria-label="LinkedIn">
                                 <Linkedin className="w-5 h-5" />
                             </a>
-                            <a href="#" target="_blank" rel="noreferrer" className="text-zinc-400 hover:text-white transition-colors p-2 bg-black/20 rounded-full border border-zinc-800 backdrop-blur-sm" aria-label="GitHub">
+                            <a href="https://github.com/deva41103" target="_blank" rel="noreferrer" className="text-zinc-400 hover:text-white transition-colors p-2 bg-black/20 rounded-full border border-zinc-800 backdrop-blur-sm" aria-label="GitHub">
                                 <Github className="w-5 h-5" />
                             </a>
                         </div>

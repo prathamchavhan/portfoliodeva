@@ -11,7 +11,7 @@ const navItems = [
     { name: 'ABOUT', icon: User, href: '#about' },
     { name: 'RESUME', icon: FileText, href: '#resume' },
     { name: 'PROJECTS', icon: Briefcase, href: '#projects' },
-    { name: 'CONTACT', icon: Mail, href: '#contact' },
+    { name: 'CONTACT', icon: Mail, href: '#Footer' },
 ];
 
 function InteractiveIcon({ item, mouseY, activeSection, lenis }) {

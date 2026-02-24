@@ -131,7 +131,7 @@ export default function Projects() {
     }, []);
 
     return (
-        <section ref={containerRef} className="w-full bg-white dark:bg-[#0a0a0a] text-foreground relative z-10 pb-24">
+        <section ref={containerRef} id='projects' className="w-full bg-white dark:bg-[#0a0a0a] text-foreground relative z-10 pb-24">
 
             {/* Header */}
             <div className="max-w-6xl mx-auto px-8 md:px-24 pt-32 pb-16 projects-header">
