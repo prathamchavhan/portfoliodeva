@@ -24,7 +24,7 @@ const projects = [
         title: "Crop Bazar",
         description: "A comprehensive agritech marketplace application connecting farmers, traders, and buyers. The platform enables crop trading, real-time mandi prices, agri-inputs marketplace, logistics support, and digital supply-chain management for agriculture.",
         tech: ["Flutter", "Dart", "REST APIs", "Cloud Backend", "Payment Integration", "Maps APIs"],
-        link: "https://play.google.com/store/apps/details?id=com.thecropbazar.market&hl=en_IN",
+        link: "https://play.google.com/store/apps/details?id=com.thecropbazar.market",
         type: "Play Store",
         color: "bg-gradient-to-br from-green-400 to-green-700",
         customUI: true
@@ -33,7 +33,7 @@ const projects = [
         title: "AI Sign Language System",
         description: "A Flask-based accessibility-focused web application that converts real-time speech into sign language skeleton poses. Uses NLP to extract glosses and a trained model to generate keypoints.",
         tech: ["Flask", "Python", "PyTorch", "MediaPipe", "NLP", "WebSockets", "MySQL"],
-        link: "https://github.com/deva41103/Beyond_words.git",
+        link: "https://github.com/deva41103/Beyond_words",
         type: "GitHub",
         color: "bg-gradient-to-br from-indigo-500 to-blue-600"
     }
