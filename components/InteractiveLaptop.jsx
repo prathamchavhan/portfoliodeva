@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { BriefcaseBusiness, Code2, Maximize2, Minus, X, LayoutTemplate, MousePointerClick, FileText, Download, MonitorSmartphone, Trophy, Award } from 'lucide-react';
+import { BriefcaseBusiness, Code2, Maximize2, Minus, X, LayoutTemplate, MousePointerClick, FileText, Download, MonitorSmartphone, Trophy, Award, Star, Brain, Server, Medal } from 'lucide-react';
 import { FaJava, FaBrain, FaGitAlt } from "react-icons/fa";
 import {
     SiPython, SiDart, SiFlutter, SiFlask, SiDjango, SiMysql, SiSqlite,
@@ -236,40 +236,80 @@ export default function InteractiveLaptop() {
                                                                 <Trophy className="w-4 h-4 md:w-5 md:h-5 text-yellow-500" />
                                                                 <h3 className="text-[11px] md:text-base font-semibold text-zinc-50 tracking-tight">Milestones & Achievements</h3>
                                                             </div>
-                                                            <div className="flex flex-col gap-3">
+                                                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 mt-2">
                                                                 {[
                                                                     {
-                                                                        title: "Flask & SQL Backend Lead",
-                                                                        desc: "Led backend development using Flask & SQL, showing strong logical and analytical thinking."
-                                                                    },
-                                                                    {
                                                                         title: "Hackathon Winner",
-                                                                        desc: "Winner of G.H. Raisoni Hackathon for an AI Sign Language Generator, proving critical problem-solving ability."
+                                                                        desc: "Winner of G.H. Raisoni Hackathon for an AI Sign Language Generator, proving critical problem-solving ability.",
+                                                                        icon: Trophy,
+                                                                        baseColor: "text-amber-400",
+                                                                        bgGlow: "bg-amber-400/10 group-hover:bg-amber-400/20",
+                                                                        iconBg: "bg-amber-400/10",
+                                                                        iconBorder: "border-amber-400/20",
+                                                                        borderHover: "hover:border-amber-400/50"
                                                                     },
                                                                     {
-                                                                        title: "HackerRank Python 4★",
-                                                                        desc: "Demonstrates excellent logical reasoning and algorithmic skills."
+                                                                        title: "Flask & SQL Lead",
+                                                                        desc: "Led backend development using Flask & SQL, showing strong logical and analytical thinking.",
+                                                                        icon: Server,
+                                                                        baseColor: "text-blue-400",
+                                                                        bgGlow: "bg-blue-400/10 group-hover:bg-blue-400/20",
+                                                                        iconBg: "bg-blue-400/10",
+                                                                        iconBorder: "border-blue-400/20",
+                                                                        borderHover: "hover:border-blue-400/50"
                                                                     },
                                                                     {
-                                                                        title: "HackerRank Software Engineer Certified",
-                                                                        desc: "Validated structured and logical problem-solving."
+                                                                        title: "Python 4★",
+                                                                        desc: "Demonstrates excellent logical reasoning and algorithmic skills via HackerRank.",
+                                                                        icon: Star,
+                                                                        baseColor: "text-emerald-400",
+                                                                        bgGlow: "bg-emerald-400/10 group-hover:bg-emerald-400/20",
+                                                                        iconBg: "bg-emerald-400/10",
+                                                                        iconBorder: "border-emerald-400/20",
+                                                                        borderHover: "hover:border-emerald-400/50"
+                                                                    },
+                                                                    {
+                                                                        title: "SE Certified",
+                                                                        desc: "Validated structured and logical problem-solving through HackerRank.",
+                                                                        icon: Medal,
+                                                                        baseColor: "text-indigo-400",
+                                                                        bgGlow: "bg-indigo-400/10 group-hover:bg-indigo-400/20",
+                                                                        iconBg: "bg-indigo-400/10",
+                                                                        iconBorder: "border-indigo-400/20",
+                                                                        borderHover: "hover:border-indigo-400/50"
                                                                     },
                                                                     {
                                                                         title: "Kaggle ML Certified",
-                                                                        desc: "Strengthened data-driven thinking and model logic."
+                                                                        desc: "Strengthened data-driven thinking and model logic.",
+                                                                        icon: Brain,
+                                                                        baseColor: "text-pink-400",
+                                                                        bgGlow: "bg-pink-400/10 group-hover:bg-pink-400/20",
+                                                                        iconBg: "bg-pink-400/10",
+                                                                        iconBorder: "border-pink-400/20",
+                                                                        borderHover: "hover:border-pink-400/50"
                                                                     },
                                                                     {
-                                                                        title: "Django Web Development (CPD Certified)",
-                                                                        desc: "Reinforced engineering logic and systematic learning."
+                                                                        title: "Django Certified",
+                                                                        desc: "Reinforced engineering logic and systematic learning with CPD Web Dev.",
+                                                                        icon: LayoutTemplate,
+                                                                        baseColor: "text-orange-400",
+                                                                        bgGlow: "bg-orange-400/10 group-hover:bg-orange-400/20",
+                                                                        iconBg: "bg-orange-400/10",
+                                                                        iconBorder: "border-orange-400/20",
+                                                                        borderHover: "hover:border-orange-400/50"
                                                                     }
                                                                 ].map((item, idx) => (
-                                                                    <div key={idx} className="flex gap-3 md:gap-4 p-3 md:p-4 rounded-lg bg-zinc-950/50 border border-zinc-800/50 hover:bg-zinc-800/80 hover:border-zinc-700 transition-all cursor-default group">
-                                                                        <div className="mt-1">
-                                                                            <div className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)] group-hover:scale-125 transition-transform"></div>
+                                                                    <div key={idx} className={`relative flex flex-col gap-3 p-4 md:p-5 rounded-xl bg-zinc-950/80 border border-zinc-800 ${item.borderHover} transition-all cursor-default group overflow-hidden`}>
+                                                                        {/* Background Glow */}
+                                                                        <div className={`absolute -top-10 -right-10 w-24 h-24 ${item.bgGlow} rounded-full blur-2xl transition-all duration-500`}></div>
+
+                                                                        <div className={`w-8 h-8 rounded-lg ${item.iconBg} flex items-center justify-center border ${item.iconBorder} ${item.baseColor} group-hover:scale-110 transition-transform duration-300`}>
+                                                                            <item.icon className="w-4 h-4" />
                                                                         </div>
-                                                                        <div className="flex flex-col gap-1 md:gap-1.5">
-                                                                            <h4 className="text-[11px] md:text-sm font-semibold text-zinc-200 tracking-wide">{item.title}</h4>
-                                                                            <p className="text-[10px] md:text-xs text-zinc-400 leading-relaxed max-w-prose">{item.desc}</p>
+
+                                                                        <div className="flex flex-col gap-1.5 z-10">
+                                                                            <h4 className="text-[12px] md:text-sm font-bold text-zinc-100 tracking-wide group-hover:text-white transition-colors leading-tight">{item.title}</h4>
+                                                                            <p className="text-[10px] md:text-sm text-zinc-400 leading-relaxed font-normal">{item.desc}</p>
                                                                         </div>
                                                                     </div>
                                                                 ))}
